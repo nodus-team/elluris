@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <partial name="PartialViews/_head"/>
+</head>
+<body>
+    <header>
+        <partial name="PartialViews/_header" />
+    </header>
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <partial name="PartialViews/_footer"/>
+    </footer>
+
+    <partial name="PartialViews/_scripts" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
