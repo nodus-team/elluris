@@ -1,4 +1,5 @@
-# :art: Elluris
+![alt text](https://github.com/nodus-team/elluris/blob/develop/src/Nodus.Elluris.Mvc/wwwroot/images/logo.png)
+
 
 Elluris é um projeto prova de conceito desenvolvido para a ultima atividade do curso de Analise e Desenvolvimento de Sistemas da Faculdade de Informatica e Administração Paulista (FIAP) em 2019. O objetivo do projeto é apresentar os conhecimentos adquiridos pelos membros do grupo Nodus durantes os estudos da Fase 7 - Ubiquitous Technology.
 
