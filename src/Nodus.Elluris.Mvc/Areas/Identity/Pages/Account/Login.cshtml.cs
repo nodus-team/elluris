@@ -36,15 +36,17 @@ namespace Nodus.Elluris.Mvc.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Display(Name = "E-mail")]            
+            [Required(ErrorMessage = "O E-mail é obrigatório.")]
+            [EmailAddress(ErrorMessage = "Utilize o formato: exemplo@exemplo.com")]            
             public string Email { get; set; }
 
-            [Required]
+            [Display(Name = "Senha")]
+            [Required(ErrorMessage = "A Senha é obrigatório.")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Guardar acesso?")]
             public bool RememberMe { get; set; }
         }
 
@@ -76,7 +78,7 @@ namespace Nodus.Elluris.Mvc.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Usuário já está ativo.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -85,12 +87,12 @@ namespace Nodus.Elluris.Mvc.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("Usuário bloqueado.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "E-mail ou Senha incorretos, verifique e tente novamente.");
                     return Page();
                 }
             }

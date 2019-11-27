@@ -3,7 +3,7 @@
 
 @{
 
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Entrar no Elluris";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -11,9 +11,7 @@
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
                 <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
@@ -24,6 +22,7 @@
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
@@ -33,14 +32,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Esqueceu sua senha?</a>
                     </p>
+                    <p>ou</p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Criar uma nova conta</a>
                     </p>
                 </div>
             </form>
@@ -49,40 +49,10 @@
     <div class="col-md-6 col-md-offset-2">
         <section>
             <div class="signup-image">
-                <figure><img src="~/images/signup-image.jpg" alt="Imagem Login" height="400px" width="600px"></figure>
+                <figure><img src="~/images/signup-image.jpg" alt="Imagem Login" class="rounded" height="400" width="600"></figure>
             </div>
         </section>
     </div>
-    @*<div class="col-md-6 col-md-offset-2">
-            <section>
-                <h4>Use another service to log in.</h4>
-                <hr />
-                @{
-                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                    {
-                        <div>
-                            <p>
-                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                                for details on setting up this ASP.NET application to support logging in via external services.
-                            </p>
-                        </div>
-                    }
-                    else
-                    {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div>
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                    }
-                                </p>
-                            </div>
-                        </form>
-                    }
-                }
-            </section>
-        </div>*@
 </div>
 
 @section Scripts {
