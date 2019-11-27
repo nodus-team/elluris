@@ -10,8 +10,8 @@ using Nodus.Elluris.Data.ORM;
 namespace Nodus.Elluris.Data.Migrations
 {
     [DbContext(typeof(NodusArtDbContext))]
-    [Migration("20191124232036_Initial-Migrations")]
-    partial class InitialMigrations
+    [Migration("20191127134932_Initial-Migration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,7 +96,7 @@ namespace Nodus.Elluris.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EstadoPaciente");
+                    b.ToTable("EventoPeriodo");
                 });
 
             modelBuilder.Entity("Nodus.Elluris.Domain.Models.ObraEvento", b =>

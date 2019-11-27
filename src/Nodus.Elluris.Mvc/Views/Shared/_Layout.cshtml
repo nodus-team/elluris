@@ -7,15 +7,20 @@
     <header>
         <partial name="PartialViews/_header" />
     </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <div class="container page-content sidebar-page right-sidebar-page clearfix" style="margin-top: 100px;">
+        <div class="page-content-wrapper">
+            <div class="page-content-inner">
+
+                @RenderBody()
+
+            </div>
+        </div>
     </div>
 
+
     <footer class="border-top footer text-muted">
-        <partial name="PartialViews/_footer"/>
+        <partial name="PartialViews/_footer" />
     </footer>
 
     <partial name="PartialViews/_scripts" />

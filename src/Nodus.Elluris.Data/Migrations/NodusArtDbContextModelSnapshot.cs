@@ -94,7 +94,7 @@ namespace Nodus.Elluris.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EstadoPaciente");
+                    b.ToTable("EventoPeriodo");
                 });
 
             modelBuilder.Entity("Nodus.Elluris.Domain.Models.ObraEvento", b =>

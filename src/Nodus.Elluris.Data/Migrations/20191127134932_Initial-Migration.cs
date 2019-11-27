@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Nodus.Elluris.Data.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,7 @@ namespace Nodus.Elluris.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EstadoPaciente",
+                name: "EventoPeriodo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -31,7 +31,7 @@ namespace Nodus.Elluris.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstadoPaciente", x => x.Id);
+                    table.PrimaryKey("PK_EventoPeriodo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,9 +77,9 @@ namespace Nodus.Elluris.Data.Migrations
                 {
                     table.PrimaryKey("PK_Evento", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Evento_EstadoPaciente_EventoPeriodoId",
+                        name: "FK_Evento_EventoPeriodo_EventoPeriodoId",
                         column: x => x.EventoPeriodoId,
-                        principalTable: "EstadoPaciente",
+                        principalTable: "EventoPeriodo",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -144,7 +144,7 @@ namespace Nodus.Elluris.Data.Migrations
                 name: "Obras");
 
             migrationBuilder.DropTable(
-                name: "EstadoPaciente");
+                name: "EventoPeriodo");
         }
     }
 }

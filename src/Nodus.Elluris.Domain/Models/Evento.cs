@@ -11,8 +11,10 @@ namespace Nodus.Elluris.Domain.Models
         [Display(Name = "Periodo do Evento")]
         public Guid EventoPeriodoId { get; set; }
         public virtual EventoPeriodo EventoPeriodo { get; set; }
-
+        [Display(Name ="Descrição")]
         public string Descricao { get; set; }
+        [Display(Name ="Observação")]
         public string Observacao { get; set; }
+
     }
 }

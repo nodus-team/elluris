@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Nodus.Elluris.Domain.Models.Evento>
+@using Nodus.Elluris.Mvc.Extensions;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header text-white bg-info mb-3">
+        <h1>Lista de Eventos</h1>
+    </div>
+    <div class="card-body">
+        <p>
+            <a asp-controller="EventoPeriodos" asp-action="Create" id="navbar-category-tutorial-jquery"
+               class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                <span class="d-none d-lg-inline-block mr-1">Adicionar Eventos</span>
+            </a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EventoPeriodo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Observacao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataAtualizacao)
+                    </th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventoPeriodo.DataInicial) -
+                            @Html.DisplayFor(modelItem => item.EventoPeriodo.DataFinal)
+                        </td>
+                        <td>
+                            @Html.LabelFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataAtualizacao)
+                        </td>
+                        <td>
+                            <a asp-controller="Eventos" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info" title="Editar Evento"></span></a>
+                            <a asp-controller="Eventos" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info" title="Detalhes Evento"></span></a>
+                            <a asp-controller="Eventos" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info" title="Excluir Evento"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

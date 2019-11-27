@@ -1,0 +1,21 @@
+﻿@model Nodus.Elluris.Domain.Models.EventoPeriodo
+
+@{
+    ViewData["Title"] = "Excluir Período";
+}
+
+<div class="card">
+    <div class="card-header text-white bg-info mb-3">
+        <h1>Excluir Período</h1>
+    </div>
+    <div class="card-body">
+        <partial name="_delete_details_periodo" />
+        <form asp-controller="EventoPeriodos" asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            <a asp-controller="EventoPeriodos" asp-action="Index" class="btn btn-info">Voltar à lista</a>
+        </form>
+    </div>
+
+</div>
+
