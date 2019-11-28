@@ -4,16 +4,24 @@
     ViewData["Title"] = "Adicionar Evento";
 }
 
-
 <div class="card">
     <div class="card-header text-white bg-info mb-3">
         <h1>Adicionar Evento</h1>
     </div>
     <div class="card-body">
-        <partial name="_edit_create_evento" />
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-controller="Eventos" asp-action="Create">
+                    <partial name="_edit_create_evento" />
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                        <a asp-controller="Eventos" asp-action="Index" class="btn btn-info">Voltar à lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

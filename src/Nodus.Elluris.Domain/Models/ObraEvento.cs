@@ -1,7 +1,4 @@
 ﻿using Nodus.Elluris.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Nodus.Elluris.Domain.Models
 {

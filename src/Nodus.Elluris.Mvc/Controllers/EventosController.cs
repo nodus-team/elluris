@@ -26,7 +26,7 @@ namespace Nodus.Elluris.Mvc.Controllers
 
             return View(await _context.Eventos
              .Include(x => x.EventoPeriodo).AsNoTracking().ToListAsync());
-       }
+        }
 
         // GET: Eventos/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -50,7 +50,7 @@ namespace Nodus.Elluris.Mvc.Controllers
         // GET: Eventos/Create
         public IActionResult Create()
         {
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "Id");
+            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial");
             return View();
         }
 
@@ -61,9 +61,9 @@ namespace Nodus.Elluris.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EventoPeriodoId,Descricao,Observacao,Id,DataAtualizacao")] Evento evento)
         {
+
             if (ModelState.IsValid)
             {
-                evento.Id = Guid.NewGuid();
                 _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +86,7 @@ namespace Nodus.Elluris.Mvc.Controllers
                 return NotFound();
             }
 
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial" , evento.EventoPeriodoId);
+            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial", evento.EventoPeriodoId);
             return View(evento);
         }
 

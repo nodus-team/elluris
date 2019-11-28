@@ -1,29 +1,32 @@
 ﻿@model Nodus.Elluris.Domain.Models.Evento
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="EventoPeriodoId" class="control-label"></label>
-                <select asp-for="EventoPeriodoId" class="form-control" asp-items="ViewBag.EventoPeriodoId"></select>
-                <span asp-validation-for="EventoPeriodoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Observacao" class="control-label"></label>
-                <input asp-for="Observacao" class="form-control" />
-                <span asp-validation-for="Observacao" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a asp-controller="Eventos" asp-action="Index" class="btn btn-info">Voltar à lista</a>
-            </div>
-        </form>
-    </div>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group col-md-12">
+    <label asp-for="EventoPeriodoId" class="control-label"></label>
+    <select asp-for="EventoPeriodoId" class="form-control" asp-items="ViewBag.EventoPeriodoId"></select>
+    <span asp-validation-for="EventoPeriodoId" class="text-danger"></span>
 </div>
+<div class="form-group col-md-12">
+    <label asp-for="Descricao" class="control-label"></label>
+    <textarea asp-for="Descricao" class="form-control"
+              id="Observacao"
+              rows="5" cols="40"
+              data-val-required="A Descrição é Obrigatória."
+              data-val-maxlength-max="500"
+              data-val-maxlength="O Tamanho máximo para a descrição são '500' caracteres."
+              data-val="true"></textarea>
+    <span asp-validation-for="Descricao" class="text-danger"></span>
+</div>
+<div class="form-group col-md-12">
+    <label asp-for="Observacao" class="control-label"></label>
+    <textarea asp-for="Observacao" class="form-control"
+              id="Observacao"
+              rows="5" cols="40"
+              data-val-required="A Observação é Obrigatória."
+              data-val-maxlength-max="5000"
+              data-val-maxlength="O Tamanho máximo para a observação são '5000' caracteres."
+              data-val="true"></textarea>
+    <span asp-validation-for="Observacao" class="text-danger"></span>
+</div>
+
