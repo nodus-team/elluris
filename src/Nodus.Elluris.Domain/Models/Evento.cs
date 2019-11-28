@@ -8,8 +8,9 @@ namespace Nodus.Elluris.Domain.Models
     public class Evento : EntityBase
     {
         [ForeignKey("EventoPeriodo")]
-        [Display(Name = "Periodo do Evento")]
+        [Display(Name = "Período do Evento")]
         public Guid EventoPeriodoId { get; set; }
+        [Display(Name = "Período do Evento")]
         public virtual EventoPeriodo EventoPeriodo { get; set; }
         [Display(Name ="Descrição")]
         public string Descricao { get; set; }

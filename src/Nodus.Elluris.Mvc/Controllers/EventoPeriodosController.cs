@@ -57,23 +57,12 @@ namespace Nodus.Elluris.Mvc.Controllers
         public async Task<IActionResult> Create([Bind("DataInicial,DataFinal,Id")] EventoPeriodo eventoPeriodo)
         {
 
-            var v = ModelState["id"].ValidationState;
-            if (v == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-            {
-                eventoPeriodo.Id = new Guid();
-                _context.Add(eventoPeriodo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
                 if (ModelState.IsValid)
                 {
                     _context.Add(eventoPeriodo);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-            }
 
             return View(eventoPeriodo);
         }

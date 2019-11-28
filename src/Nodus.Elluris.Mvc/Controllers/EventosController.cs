@@ -26,7 +26,7 @@ namespace Nodus.Elluris.Mvc.Controllers
 
             return View(await _context.Eventos
              .Include(x => x.EventoPeriodo).AsNoTracking().ToListAsync());
-       }
+        }
 
         // GET: Eventos/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -62,22 +62,11 @@ namespace Nodus.Elluris.Mvc.Controllers
         public async Task<IActionResult> Create([Bind("EventoPeriodoId,Descricao,Observacao,Id,DataAtualizacao")] Evento evento)
         {
 
-            var v = ModelState["id"].ValidationState;
-            if (v == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+            if (ModelState.IsValid)
             {
-                evento.Id = Guid.NewGuid();
                 _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    _context.Add(evento);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
             }
             ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "Id", evento.EventoPeriodoId);
             return View(evento);
@@ -97,7 +86,7 @@ namespace Nodus.Elluris.Mvc.Controllers
                 return NotFound();
             }
 
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial" , evento.EventoPeriodoId);
+            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial", evento.EventoPeriodoId);
             return View(evento);
         }
 
