@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Nodus.Elluris.Data.ORM;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Nodus.Elluris.Mvc.Controllers
 {
+    [Authorize]
     public class EventosController : Controller
     {
         private readonly NodusArtDbContext _context;
@@ -84,7 +86,7 @@ namespace Nodus.Elluris.Mvc.Controllers
                 return NotFound();
             }
 
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "PeriodoExtenso" , evento.EventoPeriodoId);
+            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial" , evento.EventoPeriodoId);
             return View(evento);
         }
 
