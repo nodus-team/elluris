@@ -13,7 +13,8 @@ namespace Nodus.Elluris.Data.ORM
     {
         public NodusArtDbContext(DbContextOptions<NodusArtDbContext> options)
             :base(options)
-        { }
+        {
+        }
 
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Obras> Obras { get; set; }

@@ -1,21 +1,118 @@
-﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/images/logo.png" width="100" height="40" class="d-inline-block align-top" alt="Elluris">
-        </a>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+ 
+
+
+    <nav class="navbar fixed-top navbar-expand-md navbar-light white double-nav scrolling-navbar bg-white border-bottom box-shadow top-nav-collapse">
+
+
+        <div class="d-flex justify-content-lg-start">
+            <a class="navbar-brand">
+                <img src="~/images/logo.png" width="100" height="40" class="d-inline-block align-top" alt="Elluris">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse d-flex justify-content-center">
+            <ul class="navbar-nav flex-grow-1 justify-content-center">
+                <li class="nav-item">
+                    <h3 class="text-info">Controle de Eventos Culturais</h3>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row mr-auto pl-2">
+            <span class="d-none d-md-inline-block">
+
+                <a asp-controller="EventoPeriodos" asp-action="Index" id="navbar-category-gettingstarted-jquery"
+                   class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                    <span class="d-none d-lg-inline-block mr-1">Períodos</span>
+                    <i class="fas fa-calendar"></i>
+                </a>
+                <a asp-controller="Eventos" asp-action="Index" id="navbar-category-tutorial-jquery"
+                   class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                    <span class="d-none d-lg-inline-block mr-1">Eventos</span>
+                    <i class="fas fa-artstation"></i>
+                </a>
+                <a id="navbar-category-tutorial-jquery" class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                    <span class="d-none d-lg-inline-block mr-1">Beacons</span>
+                    <i class="fas fa-bluetooth"></i>
+                </a>
+                <a id="navbar-category-tutorial-jquery" class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                    <span class="d-none d-lg-inline-block mr-1">Obras</span>
+                    <i class="fas fa-globe"></i>
+                </a>
+            </span>
+            <form asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" style="padding-left:20px;">
+                <button type="submit" class="btn btn-info btn-sm my-0 waves-effect waves-light">
+                    <i class="l-basic-signs"></i>
+                    <span class="d-none d-lg-inline-block mr-1">Logout</span>
+                </button>
+            </form>
+
+        </div>
+
+        <!--Navigation icons-->
+        @*
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+
+
+                <li class="nav-item d-none d-xl-inline-block" id="navbar-static-contact" alt="Contact us">
+                    <a href="/general/contact/" class="nav-link waves-effect">
+                        <i class="fas fa-envelope"></i><span class="sr-only">Contact us</span>
+                    </a>
+                </li>
+
+                <li class="nav-item d-none d-xl-inline-block" alt="Support" id="navbar-static-support">
+                    <a href="/support/" class="nav-link waves-effect">
+                        <i class="fas fa-question-circle"></i><span class="d-none d-xl-inline-block ml-1">Support</span>
+                    </a>
+                </li>
+
+                <li id="navbar-static-tools" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Tools</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
+                        <a class="dropdown-item d-xl-none waves-effect waves-light" href="/support/">Support Forum</a>
+                        <a class="dropdown-item waves-effect waves-light" href="/snippets/">Editor &amp; Snippets</a>
+                        <a class="dropdown-item waves-effect waves-light" href="/articles/">Articles</a>
+                        <a class="dropdown-item waves-effect waves-light" href="/news/frontend/">News</a>
+                        <a class="dropdown-item waves-effect waves-light" href="/cli/">MDB CLI <span class="badge badge-danger rounded">New</span></a>
+                    </div>
+                </li>
+
+                <!-- Login / register -->
+                <a id="navbar-static-signin" alt="Sign In" class="text-info align-self-center ml-2 auth-modal-toggle waves-effect waves-light" data-auth-modal-tab="sign-in">Sign In</a>
+                <a id="navbar-static-login" alt="Sign Up" class="btn btn-info btn-rounded btn-sm waves-effect waves-light auth-modal-toggle" data-auth-modal-tab="sign-up">SIGN UP</a>
+            </ul>*@
+    </nav>
+}
+else
+{
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 col-md-12">
+        <div class="d-flex justify-content-lg-start">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png" width="100" height="40" class="d-inline-block align-top" alt="Elluris">
+            </a>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-            <ul class="navbar-nav flex-grow-1">
+            <ul class="navbar-nav flex-grow-1  justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    <h3 class="text-primary">Sistema de Controle de Eventos Culturais</h3>
                 </li>
             </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+}

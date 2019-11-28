@@ -1,0 +1,18 @@
+﻿@model Nodus.Elluris.Domain.Models.Evento
+
+@{
+    ViewData["Title"] = "Editar Evento";
+}
+
+<div class="card">
+    <div class="card-header text-white bg-info mb-3">
+        <h1>Editar  Evento</h1>
+    </div>
+    <div class="card-body">
+        <partial name="_edit_create_evento" />
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

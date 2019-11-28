@@ -15,7 +15,7 @@ namespace Nodus.Elluris.Data.Mapping
             builder.Property(p => p.DataInicial).HasColumnName("DataInicial");
             builder.Property(p => p.DataFinal).HasColumnName("DataFinal");
 
-            builder.ToTable("EstadoPaciente");
+            builder.ToTable("EventoPeriodo");
         }
     }
 }
