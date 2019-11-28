@@ -9,7 +9,13 @@
         <h1>Editar  Evento</h1>
     </div>
     <div class="card-body">
-        <partial name="_edit_create_evento" />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="Eventos" asp-action="Edit">
+                    <partial name="_edit_create_evento" />
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

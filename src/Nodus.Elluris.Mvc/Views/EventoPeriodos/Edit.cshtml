@@ -9,7 +9,14 @@
         <h1>Editar Período</h1>
     </div>
     <div class="card-body">
-        <partial name="_edit_create_periodo"/>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="EventoPeriodos" asp-action="Edit">
+                    <partial name="_edit_create_periodo" />
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>
 

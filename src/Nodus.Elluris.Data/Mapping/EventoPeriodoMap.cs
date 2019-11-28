@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nodus.Elluris.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Nodus.Elluris.Data.Mapping
 {

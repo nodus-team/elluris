@@ -50,7 +50,7 @@ namespace Nodus.Elluris.Mvc.Controllers
         // GET: Eventos/Create
         public IActionResult Create()
         {
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "Id");
+            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial");
             return View();
         }
 
@@ -61,12 +61,23 @@ namespace Nodus.Elluris.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EventoPeriodoId,Descricao,Observacao,Id,DataAtualizacao")] Evento evento)
         {
-            if (ModelState.IsValid)
+
+            var v = ModelState["id"].ValidationState;
+            if (v == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
             {
                 evento.Id = Guid.NewGuid();
                 _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(evento);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "Id", evento.EventoPeriodoId);
             return View(evento);
