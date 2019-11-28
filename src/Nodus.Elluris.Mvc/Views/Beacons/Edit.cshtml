@@ -1,0 +1,34 @@
+﻿@model Nodus.Elluris.Domain.Models.Beacon
+
+@{
+    ViewData["Title"] = "Editar Beacon";
+}
+
+<div class="card">
+    <div class="card-header text-white bg-info mb-3">
+        <h1>Editar Beacon</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-controller="Beacons" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="BeaconCode" class="control-label"></label>
+                        <input asp-for="BeaconCode" class="form-control" />
+                        <span asp-validation-for="BeaconCode" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-controller="Beacons" asp-action="Index" class="btn btn-info">Voltar à lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -24,9 +24,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.DataFinal)
                     </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.DataAtualizacao)
-                    </th>*@
                     <th class="text-center">Ação</th>
                 </tr>
             </thead>
@@ -40,9 +37,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DataFinal)
                     </td>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.DataAtualizacao)
-                    </td>*@
                     <td class="text-center">
                         <a asp-controller="EventoPeriodos" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info" title="Editar Período"></span> </a>
                         <a asp-controller="EventoPeriodos" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info" title="Detalhes Período"></span> </a>

@@ -4,11 +4,7 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
- 
-
-
-    <nav class="navbar fixed-top navbar-expand-md navbar-light white double-nav scrolling-navbar bg-white border-bottom box-shadow top-nav-collapse">
-
+     <nav class="navbar fixed-top navbar-expand-md navbar-light white double-nav scrolling-navbar bg-white border-bottom box-shadow top-nav-collapse">
 
         <div class="d-flex justify-content-lg-start">
             <a class="navbar-brand">
@@ -40,11 +36,13 @@
                     <span class="d-none d-lg-inline-block mr-1">Eventos</span>
                     <i class="fas fa-artstation"></i>
                 </a>
-                <a id="navbar-category-tutorial-jquery" class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                <a asp-controller="Beacons" asp-action="Index"  id="navbar-category-tutorial-jquery" 
+                   class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
                     <span class="d-none d-lg-inline-block mr-1">Beacons</span>
                     <i class="fas fa-bluetooth"></i>
                 </a>
-                <a id="navbar-category-tutorial-jquery" class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+                <a asp-controller="Obras" asp-action="Index"   id="navbar-category-tutorial-jquery"
+                   class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
                     <span class="d-none d-lg-inline-block mr-1">Obras</span>
                     <i class="fas fa-globe"></i>
                 </a>
@@ -59,40 +57,6 @@
 
         </div>
 
-        <!--Navigation icons-->
-        @*
-            <ul class="nav navbar-nav nav-flex-icons ml-auto">
-
-
-                <li class="nav-item d-none d-xl-inline-block" id="navbar-static-contact" alt="Contact us">
-                    <a href="/general/contact/" class="nav-link waves-effect">
-                        <i class="fas fa-envelope"></i><span class="sr-only">Contact us</span>
-                    </a>
-                </li>
-
-                <li class="nav-item d-none d-xl-inline-block" alt="Support" id="navbar-static-support">
-                    <a href="/support/" class="nav-link waves-effect">
-                        <i class="fas fa-question-circle"></i><span class="d-none d-xl-inline-block ml-1">Support</span>
-                    </a>
-                </li>
-
-                <li id="navbar-static-tools" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbar-tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Tools</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbar-tools">
-                        <a class="dropdown-item d-xl-none waves-effect waves-light" href="/support/">Support Forum</a>
-                        <a class="dropdown-item waves-effect waves-light" href="/snippets/">Editor &amp; Snippets</a>
-                        <a class="dropdown-item waves-effect waves-light" href="/articles/">Articles</a>
-                        <a class="dropdown-item waves-effect waves-light" href="/news/frontend/">News</a>
-                        <a class="dropdown-item waves-effect waves-light" href="/cli/">MDB CLI <span class="badge badge-danger rounded">New</span></a>
-                    </div>
-                </li>
-
-                <!-- Login / register -->
-                <a id="navbar-static-signin" alt="Sign In" class="text-info align-self-center ml-2 auth-modal-toggle waves-effect waves-light" data-auth-modal-tab="sign-in">Sign In</a>
-                <a id="navbar-static-login" alt="Sign Up" class="btn btn-info btn-rounded btn-sm waves-effect waves-light auth-modal-toggle" data-auth-modal-tab="sign-up">SIGN UP</a>
-            </ul>*@
     </nav>
 }
 else

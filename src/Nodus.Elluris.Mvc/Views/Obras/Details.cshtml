@@ -1,0 +1,46 @@
+﻿@model Nodus.Elluris.Domain.Models.Obras
+
+@{
+    ViewData["Title"] = "Detalhes da Obra";
+}
+
+<div class="card">
+    <div class="card-header text-white bg-info mb-3">
+        <h1>Detalhes da Obra</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <img src="@Model.UrlFoto" alt="Imagem obra" width="400" height="350" id="fotoObra" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Descricao)
+                    </dd>
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.Observacao)
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Observacao)
+                    </dd>
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.DataAtualizacao)
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.DataAtualizacao)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div>
+            <a asp-controller="Obras" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Editar</a>
+            <a asp-controller="Obras" asp-action="Index" class="btn btn-info">Voltar à lista</a>
+        </div>
+    </div>
+</div>
