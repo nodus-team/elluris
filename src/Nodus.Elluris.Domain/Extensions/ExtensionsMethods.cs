@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Nodus.Elluris.Mvc.Extensions
+namespace Nodus.Elluris.Domain.Extensions
 {
     public static class ExtensionsMethods
     {

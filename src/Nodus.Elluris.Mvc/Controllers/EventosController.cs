@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Nodus.Elluris.Data.ORM;
 using Nodus.Elluris.Domain.Models;
-
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Nodus.Elluris.Mvc.Controllers
 {
@@ -85,7 +83,8 @@ namespace Nodus.Elluris.Mvc.Controllers
             {
                 return NotFound();
             }
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "Id", evento.EventoPeriodoId);
+
+            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "PeriodoExtenso" , evento.EventoPeriodoId);
             return View(evento);
         }
 
