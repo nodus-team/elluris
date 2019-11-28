@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Nodus.Elluris.Data.ORM;
+using Nodus.Elluris.Domain.Extensions;
 using Nodus.Elluris.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,7 +52,12 @@ namespace Nodus.Elluris.Mvc.Controllers
         // GET: Eventos/Create
         public IActionResult Create()
         {
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial");
+            var periodo = _context.EventoPeriodos;
+            var retorno = new List<SelectListItem>();
+            foreach (var i in periodo) 
+                retorno.Add(new SelectListItem() { Value = i.Id.ToString(), Text = i.DataInicial.ToBrazilianDate() + " - " + i.DataFinal.ToBrazilianDate() });
+
+            ViewData["EventoPeriodoId"] = retorno;
             return View();
         }
 
@@ -86,7 +93,12 @@ namespace Nodus.Elluris.Mvc.Controllers
                 return NotFound();
             }
 
-            ViewData["EventoPeriodoId"] = new SelectList(_context.EventoPeriodos, "Id", "DataInicial", evento.EventoPeriodoId);
+            var periodo = _context.EventoPeriodos;
+            var retorno = new List<SelectListItem>();
+            foreach (var i in periodo)
+                retorno.Add(new SelectListItem() { Value = i.Id.ToString(), Text = i.DataInicial.ToBrazilianDate() + " - " + i.DataFinal.ToBrazilianDate() , Selected = i.Id == evento.EventoPeriodoId});
+            ViewData["EventoPeriodoId"] = retorno;
+
             return View(evento);
         }
 
@@ -141,6 +153,8 @@ namespace Nodus.Elluris.Mvc.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["EventoPeriodoData"] = evento.EventoPeriodo.DataInicial + " - " + evento.EventoPeriodo.DataFinal;
 
             return View(evento);
         }

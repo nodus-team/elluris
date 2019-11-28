@@ -13,7 +13,7 @@ namespace Nodus.Elluris.Data.Mapping
             builder.HasKey(pk => pk.Id);
             builder.Property(b => b.Descricao).HasColumnName("Descricao");
             builder.Property(o => o.Observacao).HasColumnName("Observacao");
-            builder.Property(o => o.UrlFoto).HasColumnName("UrlFoto");
+            builder.Property(o => o.UrlFoto).HasColumnName("UrlFoto").HasColumnType("varchar(max)");
 
             builder.ToTable("Obras");
         }

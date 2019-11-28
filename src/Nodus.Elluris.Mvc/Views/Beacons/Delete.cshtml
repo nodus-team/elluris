@@ -1,0 +1,33 @@
+﻿@model Nodus.Elluris.Domain.Models.Beacon
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <div class="card-header text-white bg-info mb-3">
+        <h1>Incluir Beacon</h1>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BeaconCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BeaconCode)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataAtualizacao)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataAtualizacao)
+            </dd>
+        </dl>
+
+        <form asp-controller="Beacons" asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            <a asp-controller="Beacons" asp-action="Index" class="btn btn-info">Voltar à lista</a>
+        </form>
+    </div>
+</div>

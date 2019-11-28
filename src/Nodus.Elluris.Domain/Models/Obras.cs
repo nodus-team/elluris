@@ -12,7 +12,7 @@ namespace Nodus.Elluris.Domain.Models
         public string Descricao { get; set; }
         [Display(Name = "Observação")]
         public string Observacao { get; set; }
-
+        [Display(Name ="Foto")]
         public string UrlFoto { get; set; }
     }
 }
