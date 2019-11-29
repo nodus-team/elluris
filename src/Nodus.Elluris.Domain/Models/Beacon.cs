@@ -5,7 +5,8 @@ namespace Nodus.Elluris.Domain.Models
 {
     public class Beacon : EntityBase
     {
-        [Display(Name ="Código do Beacon")]
+        [Required(ErrorMessage = "O código do Beacon é obrigatório.")]
+        [Display(Name = "Código do Beacon")]
         public string BeaconCode { get; set; }
     }
 }
