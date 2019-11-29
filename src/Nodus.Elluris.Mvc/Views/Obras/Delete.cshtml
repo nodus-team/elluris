@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <img src="@Model.UrlFoto" alt="Imagem obra" width="400" height="350" id="fotoObra" />
+                    <img src="@Model.UrlFoto" alt="Imagem obra" class="img-fluid rounded btn-block" id="fotoObra" />
                 </div>
             </div>
             <div class="col-md-6">
@@ -35,13 +35,15 @@
                     <dd class="col-sm-6">
                         @Html.DisplayFor(model => model.DataAtualizacao)
                     </dd>
+                    <dd class="col-sm-6 mt-3">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Deletar" class="btn btn-danger" />
+                            <a asp-controller="Obras" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                        </form>
+                    </dd>
                 </dl>
             </div>
-            <form asp-action="Delete">
-                <input type="hidden" asp-for="Id" />
-                <input type="submit" value="Delete" class="btn btn-danger" /> 
-                <a asp-controller="Obras" asp-action="Index" class="btn btn-info">Voltar à lista</a>
-            </form>
         </div>
     </div>
 </div>

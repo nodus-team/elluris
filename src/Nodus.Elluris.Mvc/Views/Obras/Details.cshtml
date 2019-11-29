@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <img src="@Model.UrlFoto" alt="Imagem obra" width="400" height="350" id="fotoObra" />
+                    <img src="@Model.UrlFoto" alt="Imagem obra" class="img-fluid rounded btn-block" id="fotoObra" />
                 </div>
             </div>
             <div class="col-md-6">
@@ -35,12 +35,12 @@
                     <dd class="col-sm-6">
                         @Html.DisplayFor(model => model.DataAtualizacao)
                     </dd>
+                    <dd class="col-sm-6 mt-3">
+                        <a asp-controller="Obras" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Editar</a>
+                        <a asp-controller="Obras" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    </dd>
                 </dl>
             </div>
-        </div>
-        <div>
-            <a asp-controller="Obras" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Editar</a>
-            <a asp-controller="Obras" asp-action="Index" class="btn btn-info">Voltar à lista</a>
         </div>
     </div>
 </div>

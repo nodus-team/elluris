@@ -5,10 +5,7 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('#fotoObra')
-                .attr('src', e.target.result)
-                .width(400)
-                .height(350);
-
+                .attr('src', e.target.result);               
             $('#url')
                 .attr('value', e.target.result);
 

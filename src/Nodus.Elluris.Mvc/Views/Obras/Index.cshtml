@@ -11,7 +11,7 @@
     <div class="card-body">
         <p>
             <a asp-controller="Obras" asp-action="Create" id="navbar-category-tutorial-jquery"
-               class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+               class="btn btn-info" role="button">
                 <span class="d-none d-lg-inline-block mr-1">Adicionar Obra</span>
             </a>
         </p>
@@ -28,29 +28,29 @@
                         @Html.DisplayNameFor(model => model.Observacao)
                     </th>
 
-                    <th>Ação</th>
+                    <th class="text-center">Ação</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        <img src="@Url.Content(item.UrlFoto)" alt="" width="100" height="100" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descricao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Observacao)
-                    </td>
+                    <tr>
+                        <td>
+                            <img src="@Url.Content(item.UrlFoto)" alt="" width="150" height="150" class="img-fluid img-thumbnail" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observacao)
+                        </td>
 
-                    <td>
-                        <a asp-controller="Obras" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info" title="Editar Período"></span> </a>
-                        <a asp-controller="Obras" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info" title="Detalhes Período"></span> </a>
-                        <a asp-controller="Obras" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info" title="Excluir Período"></span> </a>
-                    </td>
-                </tr>
+                        <td class="text-center">
+                            <a asp-controller="Obras" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info m-2" title="Editar Período"></span> </a>
+                            <a asp-controller="Obras" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info m-2" title="Detalhes Período"></span> </a>
+                            <a asp-controller="Obras" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info m-2" title="Excluir Período"></span> </a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>

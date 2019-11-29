@@ -11,7 +11,7 @@
     <div class="card-body">
         <p>
             <a asp-controller="EventoPeriodos" asp-action="Create" id="navbar-category-tutorial-jquery"
-               class="btn btn-info btn-sm my-0 waves-effect waves-light" role="button">
+               class="btn btn-info" role="button">
                 <span class="d-none d-lg-inline-block mr-1">Adicionar Período</span>
             </a>
         </p>
@@ -38,9 +38,9 @@
                         @Html.DisplayFor(modelItem => item.DataFinal)
                     </td>
                     <td class="text-center">
-                        <a asp-controller="EventoPeriodos" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info" title="Editar Período"></span> </a>
-                        <a asp-controller="EventoPeriodos" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info" title="Detalhes Período"></span> </a>
-                        <a asp-controller="EventoPeriodos" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info" title="Excluir Período"></span> </a>
+                        <a asp-controller="EventoPeriodos" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info m-2" title="Editar Período"></span> </a>
+                        <a asp-controller="EventoPeriodos" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info m-2" title="Detalhes Período"></span> </a>
+                        <a asp-controller="EventoPeriodos" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info m-2" title="Excluir Período"></span> </a>
                     </td>
                 </tr>
                 }

@@ -13,7 +13,7 @@ namespace Nodus.Elluris.Data.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     DataAtualizacao = table.Column<DateTime>(nullable: false),
-                    BeaconCode = table.Column<string>(type: "varchar(100)", nullable: true)
+                    BeaconCode = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
