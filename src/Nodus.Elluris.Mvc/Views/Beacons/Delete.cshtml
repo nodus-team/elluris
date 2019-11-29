@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-header text-white bg-info mb-3">
-        <h1>Incluir Beacon</h1>
+        <h1>Excluir Beacon</h1>
     </div>
     <div class="card-body">
         <dl class="row">
@@ -27,7 +27,7 @@
         <form asp-controller="Beacons" asp-action="Delete">
             <input type="hidden" asp-for="Id" />
             <input type="submit" value="Delete" class="btn btn-danger" /> 
-            <a asp-controller="Beacons" asp-action="Index" class="btn btn-info">Voltar à lista</a>
+            <a asp-controller="Beacons" asp-action="Index" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </div>
