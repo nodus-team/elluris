@@ -1,4 +1,5 @@
 ﻿using Nodus.Elluris.Domain.Models;
+using System.Collections.Generic;
 
 namespace Nodus.Elluris.WebApi.Repository
 {
@@ -6,5 +7,6 @@ namespace Nodus.Elluris.WebApi.Repository
     {
         Obras Find(string Beacon);
         Evento GetEvento();
+        IList<Beacon> GetAllBeacons();
     }
 }

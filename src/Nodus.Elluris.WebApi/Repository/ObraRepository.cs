@@ -2,6 +2,7 @@
 using Nodus.Elluris.Domain.Models;
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Nodus.Elluris.WebApi.Repository
 {
@@ -24,13 +25,22 @@ namespace Nodus.Elluris.WebApi.Repository
             return res;
         }
 
+        public IList<Beacon> GetAllBeacons()
+        {
+            var ret = _context.Beacons.ToList();
+            if (ret == null)
+            {
+                return new List<Beacon>();
+            }
+            return ret;
+        }
+
         public Evento GetEvento()
         {
-
             var per = _context.EventoPeriodos.Where(d => d.DataInicial <= DateTime.Now && d.DataFinal >= DateTime.Now).FirstOrDefault();
             var eve = _context.Eventos.Where(e => e.EventoPeriodoId == per.Id).FirstOrDefault();
             return eve;
-
         }
+
     }
 }
