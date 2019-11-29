@@ -2,12 +2,12 @@
 
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<div class="form-group col-md-12">
+<div class="form-group">
     <label asp-for="EventoPeriodoId" class="control-label"></label>
     <select asp-for="EventoPeriodoId" class="form-control" asp-items="ViewBag.EventoPeriodoId"></select>
     <span asp-validation-for="EventoPeriodoId" class="text-danger"></span>
 </div>
-<div class="form-group col-md-12">
+<div class="form-group">
     <label asp-for="Descricao" class="control-label"></label>
     <textarea asp-for="Descricao" class="form-control"
               id="Observacao"
@@ -18,7 +18,7 @@
               data-val="true"></textarea>
     <span asp-validation-for="Descricao" class="text-danger"></span>
 </div>
-<div class="form-group col-md-12">
+<div class="form-group">
     <label asp-for="Observacao" class="control-label"></label>
     <textarea asp-for="Observacao" class="form-control"
               id="Observacao"
