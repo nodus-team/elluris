@@ -28,8 +28,9 @@ namespace Nodus.Elluris.Mvc.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "O E-mail é nencessário para recuperar a senha.")]
+            [Display(Name = "E-mail")]
+            [EmailAddress(ErrorMessage = "Utilize o formato: exemplo@exemplo.com")]
             public string Email { get; set; }
         }
 

@@ -39,20 +39,21 @@ namespace Nodus.Elluris.Mvc.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage ="Digite um endereço de e-mail")]
+            [EmailAddress(ErrorMessage = "Utilize o formato: exemplo@exemplo.com")]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Digite uma senha")]
+            [StringLength(100, ErrorMessage = "A {0} precisa ter pelo menos 6 caracteres, sendo 1 letra maiuscula, 1 letra minuscula, 1 numero e 1 caractere especial", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
+
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmar senha")]
+            [Compare("Password", ErrorMessage = "As senhas não são iguais.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -61,7 +62,7 @@ namespace Nodus.Elluris.Mvc.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = "/Obras")
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
