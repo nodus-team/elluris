@@ -27,7 +27,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Observacao)
                     </th>
-                    <th>Ação</th>
+                    <th class="text-center">Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,10 +44,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Observacao)
                         </td>
-                        <td>
-                            <a asp-controller="Eventos" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info" title="Editar Evento"></span></a>
-                            <a asp-controller="Eventos" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info" title="Detalhes Evento"></span></a>
-                            <a asp-controller="Eventos" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info" title="Excluir Evento"></span></a>
+                        <td class="text-center">
+                            <a asp-controller="Eventos" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info m-2" title="Editar Evento"></span></a>
+                            <a asp-controller="Eventos" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info m-2" title="Detalhes Evento"></span></a>
+                            <a asp-controller="Eventos" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info m-2" title="Excluir Evento"></span></a>
                         </td>
                     </tr>
                 }

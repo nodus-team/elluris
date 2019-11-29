@@ -21,7 +21,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.BeaconCode)
                     </th>
-                    <th>Ação</th>
+                    <th class="text-center">Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,10 +31,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.BeaconCode)
                         </td>
-                        <td>
-                            <a asp-controller="Beacons" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info" title="Editar Período"></span> </a>
-                            <a asp-controller="Beacons" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info" title="Detalhes Período"></span> </a>
-                            <a asp-controller="Beacons" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info" title="Excluir Período"></span> </a>
+                        <td class="text-center">
+                            <a asp-controller="Beacons" asp-action="Edit" asp-route-id="@item.Id"><span class="fas fa-pen fa-1x text-info m-2" title="Editar Período"></span> </a>
+                            <a asp-controller="Beacons" asp-action="Details" asp-route-id="@item.Id"><span class="fas fa-search fa-1x text-info m-2" title="Detalhes Período"></span> </a>
+                            <a asp-controller="Beacons" asp-action="Delete" asp-route-id="@item.Id"><span class="fas fa-trash fa-1x text-info m-2" title="Excluir Período"></span> </a>
                         </td>
                     </tr>
                 }
